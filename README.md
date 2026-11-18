@@ -18,15 +18,16 @@ Execute Django admin and create details for 10 cars
 
 # PROGRAM
 # admins.py
-
+```
 from django.contrib import admin
 from .models import Student
 
 class StudentAdmin(admin.ModelAdmin):
     list_display = ('IDNo', 'name', 'age', 'DOB', 'phone_number', 'mother_name', 'father_name')
 admin.site.register(Student, StudentAdmin)
+```
 # models.py
-
+```
 from django.db import models
 class Student(models.Model):
     IDNo = models.BigAutoField(primary_key=True)
@@ -36,8 +37,9 @@ class Student(models.Model):
     phone_number=models.IntegerField(null=True,default=0)
     mother_name=models.CharField(max_length=30,default='NA')
     father_name=models.CharField(max_length=30,default='NA')
+```
 # urls.py
-
+```
 from django.contrib import admin
 from django.urls import path
 from app import views
@@ -46,7 +48,7 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('',views.home)
 ]
-
+```
 # OUTPUT
 
 ![alt text](<Screenshot 2026-11-18 144549.png>)
